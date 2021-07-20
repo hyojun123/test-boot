@@ -19,7 +19,7 @@ public class DemoApplication {
     public String www() {
         RestTemplate restTemplate = new RestTemplate();
 
-        return restTemplate.getForObject("http://localhost:3000", User.class).toString();
+        return restTemplate.getForObject("http://192.168.30.100/user-service/", User.class).toString();
     }
 
 }

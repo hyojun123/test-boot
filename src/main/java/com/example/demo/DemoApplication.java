@@ -14,11 +14,17 @@ public class DemoApplication {
         SpringApplication.run(DemoApplication.class, args);
     }
 
+    public Integer cnt = 0;
 
     @GetMapping
     public String www() {
-        RestTemplate restTemplate = new RestTemplate();
+        cnt ++;
 
+        if(cnt > 5) {
+            System.exit(-1);
+        }
+
+        RestTemplate restTemplate = new RestTemplate();
         return restTemplate.getForObject("http://192.168.30.100/user-service/", User.class).toString();
     }
 
